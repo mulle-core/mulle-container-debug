@@ -1,10 +1,10 @@
 {
    "name" : "mulle-container-debug",
    "version" : "0.0.1",
-   "description" : "mulle-container-debug does something",
+   "description" : "🛄 Debugging support for mulle-container",
    "keywords" : [],
    "license" : "UNLICENSED",
-   "repo" : "mulle-c/mulle-container-debug",
+   "repo" : "mulle-core/mulle-container-debug",
    "src" : [
       "src/array/mulle--array-debug.c",
       "src/array/mulle--array-debug.h",
@@ -13,7 +13,6 @@
       "src/array/mulle-flexarray-debug.h",
       "src/array/pointer/mulle--pointerarray-debug.c",
       "src/array/pointer/mulle--pointerarray-debug.h",
-      "src/array/pointer/mulle-pointerarray-debug.c",
       "src/array/pointer/mulle-pointerarray-debug.h",
       "src/array/struct/mulle--structarray-debug.c",
       "src/array/struct/mulle--structarray-debug.h",

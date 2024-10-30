@@ -9,8 +9,8 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-#ifndef mulle_container_debug_provide_h__
-#define mulle_container_debug_provide_h__
+#ifndef _mulle__container__debug__provide_h__
+#define _mulle__container__debug__provide_h__
 
 
 #include "mulle--array-debug.h"

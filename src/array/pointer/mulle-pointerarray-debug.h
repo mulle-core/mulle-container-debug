@@ -37,6 +37,19 @@
 #include "mulle--pointerarray-debug.h"
 
 
+static inline void
+   mulle_pointerarray_describe_buffer_callback( struct mulle_pointerarray *array,
+                                                struct mulle_buffer *buffer,
+                                                mulle_container_item_printer_t *callback,
+                                                void *userinfo)
+{
+   mulle__pointerarray_describe_buffer_callback( (struct mulle__pointerarray *) array,
+                                                 buffer,
+                                                 callback,
+                                                 userinfo);
+}
+
+
 // use this only for debugging
 static inline void   
    mulle_pointerarray_describe_buffer( struct mulle_pointerarray *array, 

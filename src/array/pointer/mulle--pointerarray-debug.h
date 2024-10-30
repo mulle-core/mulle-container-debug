@@ -37,6 +37,15 @@
 
 #include "include.h"
 
+typedef void   mulle_container_item_printer_t( struct mulle_buffer *buffer,
+                                               void *item,
+                                               void *userinfo);
+
+MULLE__CONTAINER__DEBUG_GLOBAL
+void   mulle__pointerarray_describe_buffer_callback( struct mulle__pointerarray *array,
+                                                     struct mulle_buffer *buffer,
+                                                     mulle_container_item_printer_t *callback,
+                                                     void *userinfo);
 // use this only for debugging
 MULLE__CONTAINER__DEBUG_GLOBAL
 void   mulle__pointerarray_describe_buffer( struct mulle__pointerarray *array, 

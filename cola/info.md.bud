@@ -1,0 +1,14 @@
+## Info
+
+This repository is home to the various `describe` functions of mulle-container.
+Currently there is only one data structure supported and that is
+`mulle-pointerarray`. Support for the other data structures is just a matter
+of time.
+
+> #### Why is this in mulle-core ?
+>
+> It's based on mulle-buffer and mulle-sprintf. As mulle-sprintf uses mulle-thread,
+> this repository doesn't belong in mulle-c. The describe methods are super simple
+> to implement with mulle_buffer_sprintf though.
+>
+

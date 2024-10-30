@@ -14,7 +14,6 @@ set( SOURCES
 src/array/mulle--array-debug.c
 src/array/mulle-array-debug.c
 src/array/pointer/mulle--pointerarray-debug.c
-src/array/pointer/mulle-pointerarray-debug.c
 src/array/struct/mulle--structarray-debug.c
 src/array/struct/mulle-structarray-debug.c
 src/assoc/mulle--assoc-debug.c

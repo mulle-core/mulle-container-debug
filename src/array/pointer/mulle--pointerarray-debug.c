@@ -37,9 +37,21 @@
 #include "include-private.h"
 
 
+static void   default_item_printer( struct mulle_buffer *buffer,
+                                    void *item,
+                                    void *userinfo)
+{
+   MULLE_C_UNUSED( userinfo);
+
+   mulle_buffer_sprintf( buffer, "%p", item);
+}
+
+
 // use this only for debugging
-void   mulle__pointerarray_describe_buffer( struct mulle__pointerarray *array, 
-                                            struct mulle_buffer *buffer)
+void   mulle__pointerarray_describe_buffer_callback( struct mulle__pointerarray *array,
+                                                     struct mulle_buffer *buffer,
+                                                     mulle_container_item_printer_t *callback,
+                                                     void *userinfo)
 {
    char           *sep;
    unsigned int   n;
@@ -51,22 +63,37 @@ void   mulle__pointerarray_describe_buffer( struct mulle__pointerarray *array,
       return;
    }
 
+   if( ! callback)
+      callback = default_item_printer;
+
    n = mulle__pointerarray_get_count( array);
    switch( n)
    {
-   case 0 : mulle_buffer_sprintf( buffer, "{}"); return;
+   case 0 : mulle_buffer_sprintf( buffer, "{}");
+            return;
    case 1 : mulle_buffer_sprintf( buffer, "{ %p }", 
-                                  mulle__pointerarray_get( array, 0)); return;
+                                  mulle__pointerarray_get( array, 0));
+            return;
    }
 
    sep = "   ";
    mulle_buffer_add_string( buffer, "{\n");
    mulle__pointerarray_for( array, item)
    {
-      mulle_buffer_sprintf( buffer, "%s%p", sep, item);
+      mulle_buffer_add_string( buffer, sep);
+      (*callback)( buffer, item, userinfo);
       sep = ",\n   ";
    }
    mulle_buffer_add_string( buffer, "\n}");
+}
+
+
+
+
+void   mulle__pointerarray_describe_buffer( struct mulle__pointerarray *array,
+                                            struct mulle_buffer *buffer)
+{
+   mulle__pointerarray_describe_buffer_callback( array, buffer, NULL, NULL);
 }
 
 

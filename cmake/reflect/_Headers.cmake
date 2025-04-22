@@ -11,19 +11,19 @@ endif()
 # contents are derived from the file locations
 
 set( INCLUDE_DIRS
-src
+src/reflect
+src/generic
 src/array
 src/array/pointer
 src/array/struct
 src/assoc
 src/assoc/pointerpair
-src/generic
 src/map
 src/map/pointer
+src
 src/queue
 src/queue/struct
 src/rangeset
-src/reflect
 src/set
 src/set/pointer
 )

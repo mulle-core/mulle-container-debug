@@ -3,11 +3,13 @@
    {
       description="🛄 Debugging support for mulle-container";
       domain="github";
+      language="c";
+      dialect="c";
       name="mulle-container-debug";
-      user="mulle-c";
+      user="mulle-core";
       repo="mulle-container-debug";
-      homepage="https://github.com/mulle-c/mulle-container-debug";
-      license="UNLICENSED";
+      homepage="https://github.com/mulle-core/mulle-container-debug";
+      license="BSD-3-Clause";
    };
    dependencies =
    (
@@ -20,7 +22,7 @@
          user="mulle-c";
       },
       {
-         description="↗️ A growable C char array and also a stream";
+         description="↗️ A growable C char array and also a stream - on stack and heap";
          domain="github";
          name="mulle-buffer";
          repo="mulle-buffer";

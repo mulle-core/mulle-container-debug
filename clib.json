@@ -3,7 +3,7 @@
    "version" : "0.1.0",
    "description" : "🛄 Debugging support for mulle-container",
    "keywords" : [],
-   "license" : "UNLICENSED",
+   "license" : "BSD-3-Clause",
    "repo" : "mulle-core/mulle-container-debug",
    "src" : [
       "src/array/mulle--array-debug.c",

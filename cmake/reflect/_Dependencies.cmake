@@ -18,7 +18,15 @@ endif()
 # Disable for a sdk: `mulle-sourcetree mark mulle-c11 no-cmake-sdk-<name>`
 #
 if( NOT MULLE__C11_HEADER)
-   find_file( MULLE__C11_HEADER NAMES mulle-c11.h mulle-c11/mulle-c11.h)
+   find_file( MULLE__C11_HEADER NAMES
+      mulle-c11.h mulle-c11/mulle-c11.h
+      NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
+   )
+   if( NOT MULLE__C11_HEADER AND NOT DEPENDENCY_IGNORE_SYSTEM_HEADERS)
+      find_file( MULLE__C11_HEADER NAMES
+         mulle-c11.h mulle-c11/mulle-c11.h
+      )
+   endif()
    message( STATUS "MULLE__C11_HEADER is ${MULLE__C11_HEADER}")
 
    #
@@ -33,7 +41,7 @@ if( NOT MULLE__C11_HEADER)
       # intentionally left blank
    else()
       # Disable with: `mulle-sourcetree mark mulle-c11 no-require`
-      message( SEND_ERROR "MULLE__C11_HEADER was not found")
+      message( SEND_ERROR "MULLE__C11_HEADER was not found in mulle-c11.h mulle-c11/mulle-c11.h")
    endif()
 endif()
 
@@ -53,7 +61,7 @@ else()
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-buffer${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-buffer${CMAKE_STATIC_LIBRARY_SUFFIX}
          mulle-buffer
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
       )
       if( NOT MULLE__BUFFER_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
          find_library( MULLE__BUFFER_LIBRARY NAMES
@@ -106,7 +114,9 @@ else()
          endforeach()
       else()
          # Disable with: `mulle-sourcetree mark mulle-buffer no-require-link`
-         message( SEND_ERROR "MULLE__BUFFER_LIBRARY was not found")
+         message( SEND_ERROR "MULLE__BUFFER_LIBRARY was not found in ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-buffer${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+${CMAKE_STATIC_LIBRARY_PREFIX}mulle-buffer${CMAKE_STATIC_LIBRARY_SUFFIX}
+mulle-buffer")
       endif()
    endif()
 endif()
@@ -126,7 +136,7 @@ else()
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-container${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-container${CMAKE_STATIC_LIBRARY_SUFFIX}
          mulle-container
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
       )
       if( NOT MULLE__CONTAINER_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
          find_library( MULLE__CONTAINER_LIBRARY NAMES
@@ -179,7 +189,9 @@ else()
          endforeach()
       else()
          # Disable with: `mulle-sourcetree mark mulle-container no-require-link`
-         message( SEND_ERROR "MULLE__CONTAINER_LIBRARY was not found")
+         message( SEND_ERROR "MULLE__CONTAINER_LIBRARY was not found in ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-container${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+${CMAKE_STATIC_LIBRARY_PREFIX}mulle-container${CMAKE_STATIC_LIBRARY_SUFFIX}
+mulle-container")
       endif()
    endif()
 endif()
@@ -199,7 +211,7 @@ else()
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-sprintf${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
          ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-sprintf${CMAKE_STATIC_LIBRARY_SUFFIX}
          mulle-sprintf
-         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH
+         NO_CMAKE_SYSTEM_PATH NO_SYSTEM_ENVIRONMENT_PATH NO_CMAKE_FIND_ROOT_PATH
       )
       if( NOT MULLE__SPRINTF_LIBRARY AND NOT DEPENDENCY_IGNORE_SYSTEM_LIBARIES)
          find_library( MULLE__SPRINTF_LIBRARY NAMES
@@ -252,7 +264,9 @@ else()
          endforeach()
       else()
          # Disable with: `mulle-sourcetree mark mulle-sprintf no-require-link`
-         message( SEND_ERROR "MULLE__SPRINTF_LIBRARY was not found")
+         message( SEND_ERROR "MULLE__SPRINTF_LIBRARY was not found in ${CMAKE_STATIC_LIBRARY_PREFIX}mulle-sprintf${CMAKE_DEBUG_POSTFIX}${CMAKE_STATIC_LIBRARY_SUFFIX}
+${CMAKE_STATIC_LIBRARY_PREFIX}mulle-sprintf${CMAKE_STATIC_LIBRARY_SUFFIX}
+mulle-sprintf")
       endif()
    endif()
 endif()

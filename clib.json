@@ -1,6 +1,6 @@
 {
    "name" : "mulle-container-debug",
-   "version" : "0.1.0",
+   "version" : "0.1.1",
    "description" : "🛄 Debugging support for mulle-container",
    "keywords" : [],
    "license" : "BSD-3-Clause",

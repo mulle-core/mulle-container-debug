@@ -1,5 +1,3 @@
-## 0.1.0
+### 0.1.1
 
-
-
-* renamed `mulle__pointerarray_describe_buffer` to `mulle__pointerarray_describe_buffer_callback`
+Various small improvements

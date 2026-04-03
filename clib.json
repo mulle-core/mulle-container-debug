@@ -1,11 +1,12 @@
 {
    "name" : "mulle-container-debug",
-   "version" : "0.1.1",
+   "version" : "20",
    "description" : "🛄 Debugging support for mulle-container",
    "keywords" : [],
    "license" : "BSD-3-Clause",
    "repo" : "mulle-core/mulle-container-debug",
    "src" : [
+      "asset/dox/TOC.md",
       "src/array/mulle--array-debug.c",
       "src/array/mulle--array-debug.h",
       "src/array/mulle-array-debug.c",

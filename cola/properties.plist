@@ -6,6 +6,7 @@
       language="c";
       dialect="c";
       name="mulle-container-debug";
+      version="0.1.2";
       user="mulle-core";
       repo="mulle-container-debug";
       homepage="https://github.com/mulle-core/mulle-container-debug";

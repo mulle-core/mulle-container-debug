@@ -6,7 +6,7 @@
    "license" : "BSD-3-Clause",
    "repo" : "mulle-core/mulle-container-debug",
    "src" : [
-      "asset/dox/TOC.md",
+      "asset/dox/api/toc/index.md",
       "src/array/mulle--array-debug.c",
       "src/array/mulle--array-debug.h",
       "src/array/mulle-array-debug.c",

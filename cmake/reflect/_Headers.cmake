@@ -48,6 +48,7 @@ src/generic/include-private.h
 set( PUBLIC_GENERATED_HEADERS
 src/reflect/_mulle-container-debug-include.h
 src/reflect/_mulle-container-debug-provide.h
+src/reflect/_mulle-container-debug-versioncheck.h
 )
 
 #

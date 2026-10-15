@@ -1,6 +1,7 @@
 ### 0.1.5
 
 
+
 * Document that public pointerarray wrappers forward to the private struct via its embedded `base` member
 * Bump documented version to 0.1.5
 

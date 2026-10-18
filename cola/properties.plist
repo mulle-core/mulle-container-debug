@@ -6,7 +6,6 @@
       language="c";
       dialect="c";
       name="mulle-container-debug";
-      version="0.1.5";
       user="mulle-core";
       repo="mulle-container-debug";
       homepage="https://github.com/mulle-core/mulle-container-debug";
@@ -23,7 +22,7 @@
          user="mulle-c";
       },
       {
-         description="↗️ A growable C char array and also a stream - on stack and heap";
+         description="↗️  A growable C char array and also a stream - on stack and heap";
          domain="github";
          name="mulle-buffer";
          repo="mulle-buffer";

@@ -7,7 +7,7 @@
 
 | Release Version                                       | Release Notes  | AI Documentation
 |-------------------------------------------------------|----------------|---------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-core/mulle-container-debug.svg) [![Build Status](https://github.com/mulle-core/mulle-container-debug/workflows/CI/badge.svg)](//github.com/mulle-core/mulle-container-debug/actions) | [RELEASENOTES](RELEASENOTES.md) | [DeepWiki for mulle-container-debug](https://deepwiki.com/mulle-core/mulle-container-debug)
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-core/mulle-container-debug.svg) ![standard: C11](pix/c11.svg) ![apis: ansi](pix/apis-ansi.svg) ![memory: none](pix/memory-none.svg) ![threads: singlethreaded](pix/thread-singlethreaded.svg) [![Build Status](https://github.com/mulle-core/mulle-container-debug/workflows/CI/badge.svg)](//github.com/mulle-core/mulle-container-debug/actions) | [RELEASENOTES](RELEASENOTES.md) | [DeepWiki for mulle-container-debug](https://deepwiki.com/mulle-core/mulle-container-debug)
 
 
 
@@ -49,16 +49,21 @@ mulle-container-debug is a component of the [mulle-core](//github.com/mulle-core
 #include <mulle-core/mulle-core.h>
 ```
 
-### Add mulle-core to a cmake and git project
+### Add mulle-core to a cmake project
 
-``` bash
-git submodule add https://github.com/mulle-core/mulle-core.git mulle-core
-```
-
-Add this to your `CMakeLists.txt`:
+Add mulle-core to your `CMakeLists.txt` with
+[FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html):
 
 ``` cmake
-add_subdirectory( mulle-core)
+include( FetchContent)
+
+set( MULLE__CORE_TAG "master" CACHE STRING "branch or tag to fetch mulle-core from")
+
+FetchContent_Declare( MULLE__CORE
+   GIT_REPOSITORY https://github.com/mulle-core/mulle-core.git
+   GIT_TAG        "${MULLE__CORE_TAG}")
+FetchContent_MakeAvailable( MULLE__CORE)
+
 target_link_libraries( ${PROJECT_NAME} PRIVATE mulle-core)
 ```
 
@@ -87,14 +92,14 @@ mulle-sde install --prefix /usr/local \
    https://github.com/mulle-core/mulle-container-debug/archive/latest.tar.gz
 ```
 
-### Legacy Installation
+### Manual Installation
 
 Install the requirements:
 
 | Requirements                                 | Description
 |----------------------------------------------|-----------------------
 | [mulle-c11](https://github.com/mulle-c/mulle-c11)             | 🔀 Cross-platform C compiler glue (and some cpp conveniences)
-| [mulle-buffer](https://github.com/mulle-c/mulle-buffer)             | ↗️ A growable C char array and also a stream - on stack and heap
+| [mulle-buffer](https://github.com/mulle-c/mulle-buffer)             | ↗️  A growable C char array and also a stream - on stack and heap
 | [mulle-container](https://github.com/mulle-c/mulle-container)             | 🛄 Arrays, hashtables and a queue
 | [mulle-sprintf](https://github.com/mulle-core/mulle-sprintf)             | 🔢 An extensible sprintf function supporting stdarg and mulle-vararg
 
